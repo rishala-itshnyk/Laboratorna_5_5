@@ -25,8 +25,8 @@ namespace Program.Tests
 
             int result = Program.F(number, resSys,1, ref depth);
 
-            Assert.AreEqual(4, result);
-            Assert.AreEqual(5, depth + 1);
+            Assert.AreEqual(1, result);
+            Assert.AreEqual(4, depth);
         }
     }
 }

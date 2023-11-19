@@ -15,24 +15,31 @@ namespace Program
             {
                 return symbols[n].ToString();
             }
+            else
+            {
+                return TenBase(n / resSys, resSys) + symbols[n % resSys];
+            }
 
-            return TenBase(n / resSys, resSys) + symbols[n % resSys];
         }
 
         public static int F(int n, int resSys, int level, ref int depth)
         {
+            Console.WriteLine("Рівень = " + level);
+
             if (level > depth)
             {
                 depth = level;
-                Console.WriteLine("Рівень = " + level);
             }
 
             if (n > resSys)
             {
                 return F(n / resSys, resSys,level + 1, ref depth);
             }
+            else
+            {
+                return 1;
+            }
 
-            return level;
         }
 
         static void Main()
@@ -49,7 +56,7 @@ namespace Program
             Console.WriteLine("Результат: " + result);
 
             F(number, resSys, 1, ref depth);
-            Console.WriteLine("Глибина = " + (depth + 1));
+            Console.WriteLine("Глибина = " + (depth));
         }
     }
 }
